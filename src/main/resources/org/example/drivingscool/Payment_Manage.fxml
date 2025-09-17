@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600" prefWidth="950" style="-fx-background-color: #E6CFA9;"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="lk.ijse.driving_school_orm.PaymentManage">
+
+    <VBox layoutX="16.8" layoutY="15.2" prefHeight="570.0" prefWidth="919.0" spacing="15"
+          style="-fx-background-color: #E6CFA9;"
+          AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="17.0"
+          AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="15.0">
+
+        <!-- Header -->
+        <Label alignment="CENTER" prefHeight="62.0" prefWidth="919.0"
+               style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #eff4fe;
+                      -fx-background-color: #3b0404; -fx-background-radius: 15;"
+               text="Payment Management">
+            <font>
+                <Font name="Lucida Sans Unicode" size="12.0"/>
+            </font>
+        </Label>
+
+        <Separator prefHeight="22.0" prefWidth="919.0" style="-fx-background-color: #3b0404;"/>
+
+        <!-- Top section: form -->
+        <HBox alignment="CENTER_RIGHT" prefHeight="218.0" prefWidth="919.0" spacing="20">
+
+            <!-- Placeholder ImageView -->
+            <ImageView fitHeight="179.0" fitWidth="418.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="https://via.placeholder.com/418x179.png?text=Payment+Banner"/>
+                </image>
+            </ImageView>
+
+            <GridPane alignment="CENTER_RIGHT" hgap="15" vgap="15"
+                      prefHeight="268.0" prefWidth="542.0" style="-fx-padding: 10;">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="30"/>
+                    <ColumnConstraints percentWidth="70"/>
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints/><RowConstraints/><RowConstraints/>
+                    <RowConstraints/><RowConstraints/><RowConstraints/>
+                </rowConstraints>
+
+                <Label text="Payment ID :" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                    <font><Font name="System Bold" size="14.0"/></font>
+                </Label>
+                <TextField fx:id="txtPaymentId" editable="false"
+                           GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                <Label text="Student ID :" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                    <font><Font name="System Bold" size="14.0"/></font>
+                </Label>
+                <TextField fx:id="txtStudentId" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                <Label text="Course ID :" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                    <font><Font name="System Bold" size="14.0"/></font>
+                </Label>
+                <TextField fx:id="txtCourseId" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                <Label text="Date :" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                    <font><Font name="System Bold" size="14.0"/></font>
+                </Label>
+                <TextField fx:id="txtDate" promptText="YYYY-MM-DD"
+                           GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+                <Label text="Amount :" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                    <font><Font name="System Bold" size="14.0"/></font>
+                </Label>
+                <TextField fx:id="txtAmount" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+                <Label text="Method :" GridPane.columnIndex="0" GridPane.rowIndex="5">
+                    <font><Font name="System Bold" size="14.0"/></font>
+                </Label>
+                <TextField fx:id="txtMethod" promptText="Cash / Card / Online"
+                           GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+            </GridPane>
+        </HBox>
+
+        <!-- Buttons -->
+        <HBox alignment="CENTER" prefHeight="61.0" prefWidth="919.0" spacing="15">
+            <Button fx:id="btnSave" onAction="#handleSavePayment" prefHeight="38.0" prefWidth="120.0"
+                    style="-fx-background-color: #C1856D; -fx-text-fill: white; -fx-font-weight: bold;
+                           -fx-background-radius: 15;" text="Save">
+                <graphic>
+                    <ImageView fitHeight="26.0" fitWidth="30.0" preserveRatio="true">
+                        <image>
+                            <Image url="https://img.icons8.com/?size=100&amp;id=O5q3KoA7NnF9&amp;format=png&amp;color=FFFFFF"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+
+            <Button onAction="#handleClear" prefHeight="35.0" prefWidth="120.0"
+                    style="-fx-background-color: #C1856D; -fx-text-fill: white; -fx-font-weight: bold;
+                           -fx-background-radius: 15;" text="Clear">
+                <graphic>
+                    <ImageView fitHeight="30.0" fitWidth="32.0" preserveRatio="true">
+                        <image>
+                            <Image url="https://img.icons8.com/?size=100&amp;id=MVQ6DwlJgTPl&amp;format=png&amp;color=FFFFFF"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+
+            <Button fx:id="btnUpdate" onAction="#handleUpdatePayment" prefHeight="35.0" prefWidth="120.0"
+                    style="-fx-background-color: #C1856D; -fx-text-fill: white; -fx-font-weight: bold;
+                           -fx-background-radius: 15;" text="Update">
+                <graphic>
+                    <ImageView fitHeight="32.0" fitWidth="32.0" preserveRatio="true">
+                        <image>
+                            <Image url="https://img.icons8.com/?size=100&amp;id=11680&amp;format=png&amp;color=FFFFFF"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+
+            <Button onAction="#handleDeletePayment" prefHeight="35.0" prefWidth="120.0"
+                    style="-fx-background-color: #C1856D; -fx-text-fill: white; -fx-font-weight: bold;
+                           -fx-background-radius: 15;" text="Delete">
+                <graphic>
+                    <ImageView fitHeight="33.0" fitWidth="30.0" preserveRatio="true">
+                        <image>
+                            <Image url="https://img.icons8.com/?size=100&amp;id=G01ACMKXfdpJ&amp;format=png&amp;color=FFFFFF"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+        </HBox>
+
+        <!-- TableView for displaying payments -->
+        <TableView fx:id="tblPayments" prefHeight="200.0" prefWidth="919.0" style="-fx-background-radius: 15; -fx-border-radius: 15;">
+            <columns>
+                <TableColumn fx:id="colPaymentId" text="Payment ID" prefWidth="120"/>
+                <TableColumn fx:id="colStudentId" text="Student ID" prefWidth="120"/>
+                <TableColumn fx:id="colCourseId" text="Course ID" prefWidth="120"/>
+                <TableColumn fx:id="colDate" text="Date" prefWidth="120"/>
+                <TableColumn fx:id="colAmount" text="Amount" prefWidth="120"/>
+                <TableColumn fx:id="colMethod" text="Method" prefWidth="120"/>
+            </columns>
+        </TableView>
+
+    </VBox>
+</AnchorPane>
