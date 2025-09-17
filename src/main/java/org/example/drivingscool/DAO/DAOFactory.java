@@ -3,9 +3,7 @@ package org.example.drivingscool.DAO;
 import org.example.drivingscool.BO.SuperBO;
 import org.example.drivingscool.BO.custom.BOFactory;
 import org.example.drivingscool.BO.custom.impl.*;
-import org.example.drivingscool.DAO.custom.impl.CourseDAOImpl;
-import org.example.drivingscool.DAO.custom.impl.PaymentDAOImpl;
-import org.example.drivingscool.DAO.custom.impl.StudentDAOImpl;
+import org.example.drivingscool.DAO.custom.impl.*;
 
 public class DAOFactory {
     private static DAOFactory daoFactory;
