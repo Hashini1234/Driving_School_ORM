@@ -19,7 +19,7 @@ public class BOFactory {
     public SuperBO getBO(BOTypes boType) {
         switch(boType){
             case COURSE:
-                return new CourseBOImpl();
+                    return new CourseBOImpl();
                 case INSTRUCTOR:
                     return new InstructorBOImpl();
                 case LESSON:
