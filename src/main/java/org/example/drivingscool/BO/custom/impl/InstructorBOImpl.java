@@ -1,4 +1,4 @@
 package org.example.drivingscool.BO.custom.impl;
 
-public class BOFactory {
+public class InstructorBOImpl {
 }

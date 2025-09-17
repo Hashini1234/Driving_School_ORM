@@ -2,5 +2,5 @@ package org.example.drivingscool.BO.custom;
 
 import org.example.drivingscool.BO.SuperBO;
 
-public interface StudentBO  extends SuperBO {
+public interface CourseBO extends SuperBO {
 }

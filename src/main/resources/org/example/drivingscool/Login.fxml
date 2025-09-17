@@ -1,14 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.example.drivingscool.Login"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="400.0" prefWidth="1000.0"
+            style="-fx-background-color: linear-gradient(to right, #11998e, #38ef7d);"
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1">
 
+    <children>
+
+        <!-- Background Image -->
+        <ImageView fitHeight="400.0" fitWidth="1000.0" layoutX="0" layoutY="0" preserveRatio="false" opacity="0.3">
+            <image>
+            </image>
+        </ImageView>
+
+        <!-- Login Card -->
+        <VBox alignment="CENTER" layoutX="580.0" prefHeight="400.0" prefWidth="420.0" spacing="15.0"
+              style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 30;"
+              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0">
+
+            <effect>
+                <DropShadow color="#00000055" radius="12.0" />
+            </effect>
+
+            <!-- Heading -->
+            <Label text="Welcome Back 👋" textFill="#2d3436" style="-fx-font-weight: bold;">
+                <font>
+                    <Font size="24.0" />
+                </font>
+            </Label>
+
+            <Label text="Login to your account" textFill="#636e72">
+                <font>
+                    <Font size="14.0" />
+                </font>
+            </Label>
+
+            <!-- Username Field -->
+            <TextField fx:id="txtUsername" maxWidth="300.0" promptText="Username"
+                       style="-fx-background-color: #f1f2f6; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #dfe6e9; -fx-padding: 10;" />
+
+            <!-- Password Field -->
+            <PasswordField fx:id="txtPassword" maxWidth="300.0" promptText="Password"
+                           style="-fx-background-color: #f1f2f6; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #dfe6e9; -fx-padding: 10;" />
+
+            <!-- Login Button -->
+            <Button fx:id="btnLogin"  prefWidth="300.0"
+                    style="-fx-background-color: #00b894; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 0;"
+                    text="Login" />
+
+            <!-- Error Label -->
+            <Label fx:id="lblError" textFill="red" visible="false" style="-fx-font-size: 12px;" />
+
+            <!-- Sign-up Prompt -->
+            <HBox alignment="CENTER" spacing="5.0">
+                <Label text="Don't have an account?" textFill="#636e72" />
+                <Hyperlink text="Sign Up" textFill="#00b894"
+                           style="-fx-font-weight: bold; -fx-underline: true;" />
+            </HBox>
+
+            <padding>
+                <Insets top="30.0" />
+            </padding>
+
+        </VBox>
+
+    </children>
 </AnchorPane>
