@@ -12,5 +12,8 @@ requires java.naming;
     opens org.example.drivingscool.view.tdm to javafx.base;
     opens org.example.drivingscool.entity to org.hibernate.orm.core;
     opens org.example.drivingscool.config to jakarta.persistence;
+    opens org.example.drivingscool.model to javafx.base; // <-- give javafx.base access
+
     exports org.example.drivingscool;
+    exports  org.example.drivingscool.controller;
 }

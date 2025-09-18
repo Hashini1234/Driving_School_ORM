@@ -63,6 +63,7 @@ public class StudentPageController {
     private void loadTable() throws SQLException {
         ArrayList<StudentDTO> studentList = (ArrayList<StudentDTO>) studentBO.getAllStudent();
         ObservableList<StudentDTO> data = FXCollections.observableArrayList(studentList);
+        System.out.println(data);
         tblStudent.setItems(data);
     }
 
