@@ -15,6 +15,5 @@ public interface StudentBO  extends SuperBO {
 
     boolean delete(String id) throws  Exception;
 
-    String getNextId() throws SQLException;
 }
 

@@ -38,7 +38,7 @@ public class StudentPageController {
     @FXML
     public void initialize() throws SQLException {
         setCellValueFactory();
-        setNextId();
+
         loadTable();
     }
 
@@ -52,13 +52,6 @@ public class StudentPageController {
         colRegDate.setCellValueFactory(new PropertyValueFactory<>("registrationDate"));
     }
 
-    private void setNextId() {
-        try {
-            txtStudentId.setText(studentBO.getNextId());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
     private void loadTable() throws SQLException {
         ArrayList<StudentDTO> studentList = (ArrayList<StudentDTO>) studentBO.getAllStudent();
@@ -109,7 +102,6 @@ public class StudentPageController {
 
             if (studentBO.update(student)) {
                 loadTable();
-                setNextId();
                 new Alert(Alert.AlertType.INFORMATION, "Updated Successfully!").show();
             } else {
                 new Alert(Alert.AlertType.ERROR, "Update Failed!").show();
@@ -134,7 +126,6 @@ public class StudentPageController {
             try {
                 if (studentBO.delete(id)) {
                     loadTable();
-                    setNextId();
                     new Alert(Alert.AlertType.INFORMATION, "Deleted Successfully!").show();
 
 
@@ -157,7 +148,6 @@ public class StudentPageController {
         txtAddress.clear();
         txtRegisterFee.clear();
         dpRegistrationDate.setValue(null);
-        setNextId();
     }
 
     @FXML

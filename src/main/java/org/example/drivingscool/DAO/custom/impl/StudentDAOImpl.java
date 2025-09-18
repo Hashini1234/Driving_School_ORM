@@ -35,34 +35,7 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
 
-    @Override
-    public String generateNewId() {
-        Session session = FactoryConfigaration.getInstance().getSession();
-        try {
-            // Correct alias usage + ORDER BY
-            Query<String> query = session.createQuery(
-                    "SELECT c.id FROM Student c ORDER BY c.id DESC",
-                    String.class
-            );
-            query.setMaxResults(1);
 
-            String lastId = query.uniqueResult();
-
-            // If no records yet, return first ID
-            if (lastId == null) {
-                return "S001";
-            }
-
-            // Otherwise, increment the numeric part of the ID
-            int idNum = Integer.parseInt(lastId.replace("S", ""));
-            idNum++;
-            return String.format("S%03d", idNum);
-
-        } finally {
-            session.close();
-        }
-
-    }
 
     @Override
     public boolean delete(String id) {

@@ -34,14 +34,21 @@ public class StudentBOImpl implements StudentBO {
 
     @Override
     public boolean save(StudentDTO s) throws Exception {
-        return studentDAO.save(new Student(s.getStudentId(),s.getName(),s.getEmail(),s.getPhone(),s.getAddress(),s.getRegisterFee(),s.getRegistrationDate()));
-
+        boolean saved = studentDAO.save(new Student(
+                s.getStudentId(), s.getName(), s.getEmail(), s.getPhone(),
+                s.getAddress(), s.getRegisterFee(), s.getRegistrationDate()
+        ));
+        return saved;
     }
 
     @Override
     public boolean update(StudentDTO s) throws SQLException, ClassNotFoundException {
-        return studentDAO.save(new Student(s.getStudentId(),s.getName(),s.getEmail(),s.getPhone(),s.getAddress(),s.getRegisterFee(),s.getRegistrationDate()));
-}
+        boolean updated = studentDAO.update(new Student(
+                s.getStudentId(), s.getName(), s.getEmail(), s.getPhone(),
+                s.getAddress(), s.getRegisterFee(), s.getRegistrationDate()
+        ));
+        return updated;
+    }
 
 
 
@@ -53,9 +60,5 @@ public class StudentBOImpl implements StudentBO {
 
     }
 
-    @Override
-    public String getNextId() throws SQLException {
-        return studentDAO.generateNewId();
 
-    }
 }
