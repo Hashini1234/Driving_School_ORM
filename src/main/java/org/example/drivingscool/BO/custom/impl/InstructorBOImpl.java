@@ -1,4 +1,6 @@
 package org.example.drivingscool.BO.custom.impl;
 
-public class InstructorBOImpl {
+import org.example.drivingscool.BO.custom.InstructorBO;
+
+public class InstructorBOImpl implements InstructorBO {
 }

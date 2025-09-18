@@ -4,9 +4,16 @@ import org.example.drivingscool.DAO.CrudDao;
 import org.example.drivingscool.entity.Student;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Optional;
 
 public interface StudentDAO extends CrudDao<Student> {
-    Optional<Student> findStudentByNic(String nic) throws SQLException;
 
+    ArrayList<Student> getall();
+
+    String generateNewId();
+
+    boolean delete(String id);
+
+    boolean update(Student student);
 }

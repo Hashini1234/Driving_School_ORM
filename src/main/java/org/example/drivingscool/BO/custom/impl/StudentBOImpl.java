@@ -1,55 +1,61 @@
 package org.example.drivingscool.BO.custom.impl;
 
 import org.example.drivingscool.BO.custom.StudentBO;
-import org.example.drivingscool.BO.util.EntityDTOConverter;
+
 import org.example.drivingscool.DAO.DAOFactory;
 import org.example.drivingscool.DAO.custom.StudentDAO;
 import org.example.drivingscool.entity.Student;
 import org.example.drivingscool.model.StudentDTO;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class StudentBOImpl implements StudentBO {
 
-    private final StudentDAO studentDAO =
+   StudentDAO studentDAO =
             (StudentDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.STUDENT);
-    private final EntityDTOConverter converter = new EntityDTOConverter();
+
 
 
     @Override
     public List<StudentDTO> getAllStudent() throws SQLException {
-        return List.of();
+        ArrayList<Student> students = studentDAO.getall();
+
+        ArrayList<StudentDTO> studentDTOS = new ArrayList<>();
+        for (Student s : students) {
+            studentDTOS.add(new StudentDTO(s.getStudentId(),s.getName(),s.getEmail(),s.getPhone(),s.getAddress(),s.getRegisterFee(),s.getRegistrationDate()));
+        }
+        return studentDTOS;
+    }
+
+
+
+
+    @Override
+    public boolean save(StudentDTO s) throws Exception {
+        return studentDAO.save(new Student(s.getStudentId(),s.getName(),s.getEmail(),s.getPhone(),s.getAddress(),s.getRegisterFee(),s.getRegistrationDate()));
+
     }
 
     @Override
-    public boolean save(StudentDTO dto) throws Exception {
-        Optional<Student> optionalStudent = studentDAO.findById(dto.getStudentId());
+    public boolean update(StudentDTO s) throws SQLException, ClassNotFoundException {
+        return studentDAO.save(new Student(s.getStudentId(),s.getName(),s.getEmail(),s.getPhone(),s.getAddress(),s.getRegisterFee(),s.getRegistrationDate()));
+}
 
 
-        Optional<Student> customerByNicOptional = studentDAO.findStudentByNic(dto.getName());
 
 
-        Student customer = converter.getStudent(dto);
-//        customer.setEmail("hello");
-
-        boolean save = studentDAO.save(customer);
-        return save;
-    }
-
-    @Override
-    public void update(StudentDTO dto) throws SQLException {
-
-    }
 
     @Override
     public boolean delete(String id) throws Exception {
-        return false;
+        return studentDAO.delete(id);
+
     }
 
     @Override
     public String getNextId() throws SQLException {
-        return "";
+        return studentDAO.generateNewId();
+
     }
 }

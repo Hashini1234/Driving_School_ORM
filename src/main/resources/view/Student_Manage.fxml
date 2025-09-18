@@ -7,7 +7,6 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -93,30 +92,30 @@
 
             <!-- Right Image -->
             <ImageView fitHeight="179.0" fitWidth="418.0" pickOnBounds="true" preserveRatio="true">
-                <image>
-                    <Image url="@../../../../../../../../../Pictures/Screenshots/payment.png" />
-                </image>
+<!--                <image>-->
+<!--                    <Image url="@../../../../../../../../../Pictures/Screenshots/payment.png" />-->
+<!--                </image>-->
             </ImageView>
         </HBox>
 
         <!-- Buttons -->
         <HBox alignment="CENTER" prefHeight="61.0" prefWidth="919.0" spacing="15">
-            <Button fx:id="btnSave" onAction="#handleSavePayment" prefHeight="38.0" prefWidth="120.0" style="-fx-background-color: #C1856D; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 15;" text="Save">
+            <Button fx:id="btnSave" onAction="#handleSaveStudent" prefHeight="38.0" prefWidth="120.0" style="-fx-background-color: #C1856D; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 15;" text="Save">
                 <font><Font size="14.0" /></font>
             </Button>
             <Button fx:id="btnClear" onAction="#handleClear" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #C1856D; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 15;" text="Clear">
                 <font><Font size="14.0" /></font>
             </Button>
-            <Button fx:id="btnUpdate" onAction="#handleUpdatePayment" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #C1856D; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 15;" text="Update">
+            <Button fx:id="btnUpdate" onAction="#handleUpdateStudent" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #C1856D; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 15;" text="Update">
                 <font><Font size="14.0" /></font>
             </Button>
-            <Button fx:id="btnDelete" onAction="#handleDeletePayment" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #C1856D; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 15;" text="Delete">
+            <Button fx:id="btnDelete" onAction="#handleDeleteStudent" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #C1856D; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 15;" text="Delete">
                 <font><Font size="14.0" /></font>
             </Button>
         </HBox>
 
         <!-- Payment Table -->
-        <TableView fx:id="tblStudent" prefHeight="246.0" prefWidth="930.0" style="-fx-background-color: white; -fx-border-color: lightgray; -fx-border-radius: 8;" VBox.vgrow="ALWAYS">
+        <TableView fx:id="tblStudent" onMouseClicked="#tableClickOnAction" prefHeight="246.0" prefWidth="930.0" style="-fx-background-color: white; -fx-border-color: lightgray; -fx-border-radius: 8;" VBox.vgrow="ALWAYS">
             <columns>
                 <TableColumn fx:id="colStudentId" prefWidth="100" text="Student ID" />
                 <TableColumn fx:id="colName" prefWidth="140" text="Name" />

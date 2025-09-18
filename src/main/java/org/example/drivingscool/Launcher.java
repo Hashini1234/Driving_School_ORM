@@ -10,14 +10,16 @@ import java.io.IOException;
 public class Launcher extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Launcher.class.getResource("Login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/Student_Manage.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         stage.setTitle("Driving School!");
         stage.setScene(scene);
         stage.show();
+
+
     }
 
     public static void main(String[] args) {
-        launch();
+        launch(args);
     }
 }

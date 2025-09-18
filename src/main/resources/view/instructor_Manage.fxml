@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="642.0" prefWidth="950" style="-fx-background-color: E6CFA9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ormfinalproject.Controller.InstructorController">
+<AnchorPane prefHeight="642.0" prefWidth="950" style="-fx-background-color: E6CFA9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.drivingscool.controller.InstructorController">
 
     <VBox layoutX="16.8" layoutY="15.2" prefHeight="570.0" prefWidth="919.0" spacing="15" style="-fx-background-color: E6CFA9;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="15.0">
 

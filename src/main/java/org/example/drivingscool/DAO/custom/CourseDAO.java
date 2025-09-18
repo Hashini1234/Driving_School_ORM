@@ -1,4 +1,7 @@
 package org.example.drivingscool.DAO.custom;
 
-public interface CourseDAO {
+import org.example.drivingscool.DAO.CrudDao;
+import org.example.drivingscool.entity.Course;
+
+public interface CourseDAO extends CrudDao<Course> {
 }
