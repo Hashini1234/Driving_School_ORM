@@ -11,6 +11,7 @@ import javafx.scene.input.MouseEvent;
 import org.example.drivingscool.BO.custom.InstructorBO;
 import org.example.drivingscool.BO.custom.impl.InstructorBOImpl;
 import org.example.drivingscool.model.InstructorDTO;
+import org.example.drivingscool.model.StudentDTO;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -72,6 +73,7 @@ public class InstructorController {
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         colPhone.setCellValueFactory(new PropertyValueFactory<>("phone"));
+        colAvailability.setCellValueFactory(new PropertyValueFactory<>("availability"));
     }
 
     private void loadTable() throws SQLException {
@@ -85,15 +87,26 @@ public class InstructorController {
         txtName.clear();
         txtEmail.clear();
         txtPhone.clear();
+        txtAvailability.clear();
     }
 
     public void handleUpdateInstructor(ActionEvent actionEvent) {
         try {
+            // Validate ID
+            String idText = txtInstructorId.getText();
+            if (idText == null || idText.isEmpty() || !idText.matches("\\d+")) {
+                new Alert(Alert.AlertType.ERROR, "Invalid Instructor ID! Please select a valid instructor from the table.").show();
+                return;
+            }
+
+            long id = Long.parseLong(idText);
+
             InstructorDTO instructor = new InstructorDTO(
-                    Long.parseLong(txtInstructorId.getText()),
+                    id,
                     txtName.getText(),
                     txtEmail.getText(),
-                    txtPhone.getText()
+                    txtPhone.getText(),
+                    txtAvailability.getText()
             );
 
             if (instructorBO.update(instructor)) {
@@ -104,9 +117,13 @@ public class InstructorController {
             }
         } catch (Exception e) {
             e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Something went wrong while updating!").show();
         }
-
     }
+
+
+
+
 
     public void handleDeleteInstructor(ActionEvent actionEvent) throws Exception {
         String id = txtInstructorId.getText();
@@ -134,7 +151,8 @@ public class InstructorController {
             InstructorDTO instructor = new InstructorDTO(
                     txtName.getText(),
                     txtEmail.getText(),
-                    txtPhone.getText()
+                    txtPhone.getText(),
+                    txtAvailability.getText()
             );
 
             if (instructorBO.save(instructor)) {

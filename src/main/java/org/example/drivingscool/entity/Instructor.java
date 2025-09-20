@@ -12,11 +12,12 @@ import lombok.*;
 public class Instructor {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "instructor_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long instructorId;
 
     private String name;
     private String email;
     private String phone;
+    private String availability;
 }

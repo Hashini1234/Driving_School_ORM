@@ -27,7 +27,8 @@ public class InstructorDAOImpl implements InstructorDAO {
             if (transaction != null) transaction.rollback();
             e.printStackTrace();
         }
-        return instructors != null ? instructors : new ArrayList<>();
+
+        return (instructors != null) ? instructors : new ArrayList<>();
     }
 
     @Override

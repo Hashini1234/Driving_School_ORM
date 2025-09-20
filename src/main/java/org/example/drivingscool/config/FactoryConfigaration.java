@@ -35,11 +35,11 @@ public class FactoryConfigaration {
 
             // Register all entity classes
 
-//            configuration.addAnnotatedClass(Student.class);
-//            configuration.addAnnotatedClass(Instructor.class);
-//            configuration.addAnnotatedClass(Payment.class);
+            configuration.addAnnotatedClass(Student.class);
+            configuration.addAnnotatedClass(Instructor.class);
+            configuration.addAnnotatedClass(Payment.class);
             configuration.addAnnotatedClass(Course.class);
-//            configuration.addAnnotatedClass(Lesson.class);
+            configuration.addAnnotatedClass(Lesson.class);
 
             // Build session factory
             sessionFactory = configuration.buildSessionFactory();

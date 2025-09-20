@@ -14,10 +14,12 @@ public class InstructorDTO {
     private String name;
     private String email;
     private String phone;
+    private String availability;
 
-    public InstructorDTO(String name, String email, String phone) {
+    public InstructorDTO(String name, String email, String phone, String availability) {
         this.name = name;
         this.email = email;
         this.phone = phone;
+        this.availability = availability;
     }
 }

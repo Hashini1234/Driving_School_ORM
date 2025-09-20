@@ -8,7 +8,10 @@ import java.util.List;
 
 public interface InstructorBO extends SuperBO {
     List<InstructorDTO> getAllInstructor() throws SQLException;
+
     boolean save(InstructorDTO dto) throws Exception;
+
     boolean update(InstructorDTO dto) throws SQLException, ClassNotFoundException;
+
     boolean delete(String id) throws Exception;
 }

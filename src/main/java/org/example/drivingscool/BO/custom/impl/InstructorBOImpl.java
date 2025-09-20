@@ -21,19 +21,23 @@ public class InstructorBOImpl implements InstructorBO {
 
         ArrayList<InstructorDTO> instructorDTOS = new ArrayList<>();
         for (Instructor i : instructors) {
-            instructorDTOS.add(new InstructorDTO(i.getInstructorId(), i.getName(), i.getEmail(), i.getPhone()));
+            instructorDTOS.add(new InstructorDTO(i.getInstructorId(), i.getName(), i.getEmail(), i.getPhone(), i.getAvailability()));
         }
         return instructorDTOS;
     }
 
     @Override
-    public boolean save(InstructorDTO i) throws Exception {
-        return instructorDAO.save(new Instructor(i.getInstructorId(), i.getName(), i.getEmail(), i.getPhone()));
+    public boolean save(InstructorDTO dto) throws Exception {
+        return instructorDAO.save(new Instructor(
+                dto.getInstructorId(), dto.getName(), dto.getEmail(), dto.getPhone(), dto.getAvailability()
+        ));
     }
 
     @Override
-    public boolean update(InstructorDTO i) throws SQLException, ClassNotFoundException {
-        return instructorDAO.update(new Instructor(i.getInstructorId(), i.getName(), i.getEmail(), i.getPhone()));
+    public boolean update(InstructorDTO dto) throws SQLException, ClassNotFoundException {
+        return instructorDAO.update(new Instructor(
+                dto.getInstructorId(), dto.getName(), dto.getEmail(), dto.getPhone(), dto.getAvailability()
+        ));
     }
 
     @Override
