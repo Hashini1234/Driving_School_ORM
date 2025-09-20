@@ -14,4 +14,6 @@ public interface CourseBO extends SuperBO {
     boolean update(CourseDTO dto) throws SQLException;
 
     boolean delete(String id) throws Exception;
+
+
 }
