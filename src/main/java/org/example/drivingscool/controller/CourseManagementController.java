@@ -4,16 +4,22 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 import lombok.SneakyThrows;
 import org.example.drivingscool.BO.custom.CourseBO;
 import org.example.drivingscool.BO.custom.impl.CourseBOImpl;
 import org.example.drivingscool.model.CourseDTO;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -35,6 +41,7 @@ public class CourseManagementController implements Initializable {
     public TableColumn colCourseName;
     public TableColumn colDuration;
     public TableColumn colFees;
+    public Button btnBackToDashboard;
 
 
     private void setCellValueFactory() {
@@ -127,6 +134,7 @@ public class CourseManagementController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         setCellValueFactory();
         loadTable();
+
     }
 
     public void clickOnAction(MouseEvent mouseEvent) {
@@ -138,4 +146,36 @@ public class CourseManagementController implements Initializable {
             txtFees.setText(selected.getFee());
         }
     }
-}
+
+    public void handleBackToDashboard(ActionEvent actionEvent) {
+        try {
+            URL resourceUrl = getClass().getResource("/org/example/drivingscool/Dashboard.fxml");
+            if (resourceUrl == null) {
+                throw new IOException("Dashboard.fxml not found at /org/example/drivingscool/Dashboard.fxml.");
+            }
+
+            FXMLLoader loader = new FXMLLoader(resourceUrl);
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Dashboard");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Failed to load dashboard: " + e.getMessage()).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Unexpected error: " + e.getMessage()).show();
+
+
+    }
+    }
+    }
+
+
+
+
+
+

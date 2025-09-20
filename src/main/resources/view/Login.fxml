@@ -7,67 +7,177 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="1000.0"
-            style="-fx-background-color: linear-gradient(to right, #11998e, #38ef7d);"
-            xmlns="http://javafx.com/javafx/23.0.1"
-            xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="700.0" prefWidth="1200.0"
+            style="-fx-background-color: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.drivingscool.controller.LoginController">
 
     <children>
 
-        <!-- Background Image -->
-        <ImageView fitHeight="400.0" fitWidth="1000.0" layoutX="0" layoutY="0" preserveRatio="false" opacity="0.3">
-            <image>
-            </image>
-        </ImageView>
+        <!-- Background Overlay -->
+        <AnchorPane prefHeight="700.0" prefWidth="1200.0"
+                    style="-fx-background-color: rgba(0, 0, 0, 0.1);" />
 
-        <!-- Login Card -->
-        <VBox alignment="CENTER" layoutX="580.0" prefHeight="400.0" prefWidth="420.0" spacing="15.0"
-              style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 30;"
+        <!-- Left Side - Branding -->
+        <VBox alignment="CENTER" layoutX="0" layoutY="0" prefHeight="700.0" prefWidth="600.0"
+              spacing="30.0" style="-fx-padding: 50;">
+
+            <!-- Logo/Icon -->
+            <ImageView fitHeight="120.0" fitWidth="120.0" preserveRatio="true">
+                <image>
+                    <Image url="https://img.icons8.com/fluency/200/car.png" />
+                </image>
+                <effect>
+                    <DropShadow color="#00000033" radius="10.0" />
+                </effect>
+            </ImageView>
+
+            <!-- Brand Title -->
+            <Label text="DRIVE MASTER" textFill="white" style="-fx-font-weight: bold;">
+                <font>
+                    <Font name="Arial Black" size="36.0" />
+                </font>
+                <effect>
+                    <DropShadow color="#00000066" radius="5.0" />
+                </effect>
+            </Label>
+
+            <!-- Subtitle -->
+            <Label text="Professional Driving School" textFill="rgba(255, 255, 255, 0.9)"
+                   style="-fx-font-weight: 600;">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Label>
+
+            <!-- Features List -->
+            <VBox spacing="15.0" alignment="CENTER_LEFT" maxWidth="400.0">
+                <HBox spacing="10.0" alignment="CENTER_LEFT">
+                    <ImageView fitHeight="20.0" fitWidth="20.0">
+                        <image>
+                            <Image url="https://img.icons8.com/fluency/48/checkmark.png" />
+                        </image>
+                    </ImageView>
+                    <Label text="Expert Instructors" textFill="white" style="-fx-font-size: 16px;" />
+                </HBox>
+                <HBox spacing="10.0" alignment="CENTER_LEFT">
+                    <ImageView fitHeight="20.0" fitWidth="20.0">
+                        <image>
+                            <Image url="https://img.icons8.com/fluency/48/checkmark.png" />
+                        </image>
+                    </ImageView>
+                    <Label text="Modern Learning System" textFill="white" style="-fx-font-size: 16px;" />
+                </HBox>
+                <HBox spacing="10.0" alignment="CENTER_LEFT">
+                    <ImageView fitHeight="20.0" fitWidth="20.0">
+                        <image>
+                            <Image url="https://img.icons8.com/fluency/48/checkmark.png" />
+                        </image>
+                    </ImageView>
+                    <Label text="High Success Rate" textFill="white" style="-fx-font-size: 16px;" />
+                </HBox>
+            </VBox>
+
+        </VBox>
+
+        <!-- Right Side - Login Form -->
+        <VBox alignment="CENTER" layoutX="600.0" layoutY="0" prefHeight="700.0" prefWidth="600.0"
+              spacing="25.0" style="-fx-background-color: white; -fx-background-radius: 0 0 0 50; -fx-padding: 60;"
               AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0">
 
             <effect>
-                <DropShadow color="#00000055" radius="12.0" />
+                <DropShadow color="#00000033" radius="20.0" offsetX="-5.0" />
             </effect>
 
-            <!-- Heading -->
-            <Label text="Welcome Back 👋" textFill="#2d3436" style="-fx-font-weight: bold;">
-                <font>
-                    <Font size="24.0" />
-                </font>
-            </Label>
+            <!-- Login Header -->
+            <VBox alignment="CENTER" spacing="8.0">
+                <Label text="Welcome Back! 🚗" textFill="#2d3436" style="-fx-font-weight: bold;">
+                    <font>
+                        <Font name="System Bold" size="28.0" />
+                    </font>
+                </Label>
+                <Label text="Sign in to access your driving school dashboard" textFill="#636e72">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+            </VBox>
 
-            <Label text="Login to your account" textFill="#636e72">
-                <font>
-                    <Font size="14.0" />
-                </font>
-            </Label>
+            <!-- Form Container -->
+            <VBox spacing="20.0" alignment="CENTER" maxWidth="400.0" prefWidth="400.0">
 
-            <!-- Username Field -->
-            <TextField fx:id="txtUsername" maxWidth="300.0" promptText="Username"
-                       style="-fx-background-color: #f1f2f6; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #dfe6e9; -fx-padding: 10;" />
+                <!-- Username Field -->
+                <VBox spacing="5.0">
+                    <Label text="Username" textFill="#2d3436" style="-fx-font-weight: 600; -fx-font-size: 14px;" />
+                    <HBox alignment="CENTER_LEFT" spacing="10.0"
+                          style="-fx-background-color: #f8f9fa; -fx-background-radius: 12; -fx-border-color: #e9ecef; -fx-border-radius: 12; -fx-border-width: 2; -fx-padding: 12;">
+                        <ImageView fitHeight="20.0" fitWidth="20.0">
+                            <image>
+                                <Image url="https://img.icons8.com/fluency-systems-regular/48/4a90e2/user.png" />
+                            </image>
+                        </ImageView>
+                        <TextField fx:id="txtUsername" promptText="Enter your username"
+                                   style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-font-size: 14px;"
+                                   HBox.hgrow="ALWAYS" />
+                    </HBox>
+                </VBox>
 
-            <!-- Password Field -->
-            <PasswordField fx:id="txtPassword" maxWidth="300.0" promptText="Password"
-                           style="-fx-background-color: #f1f2f6; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #dfe6e9; -fx-padding: 10;" />
+                <!-- Password Field -->
+                <VBox spacing="5.0">
+                    <Label text="Password" textFill="#2d3436" style="-fx-font-weight: 600; -fx-font-size: 14px;" />
+                    <HBox alignment="CENTER_LEFT" spacing="10.0"
+                          style="-fx-background-color: #f8f9fa; -fx-background-radius: 12; -fx-border-color: #e9ecef; -fx-border-radius: 12; -fx-border-width: 2; -fx-padding: 12;">
+                        <ImageView fitHeight="20.0" fitWidth="20.0">
+                            <image>
+                                <Image url="https://img.icons8.com/fluency-systems-regular/48/4a90e2/lock.png" />
+                            </image>
+                        </ImageView>
+                        <PasswordField fx:id="txtPassword" promptText="Enter your password"
+                                       style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-font-size: 14px;"
+                                       HBox.hgrow="ALWAYS" />
+                    </HBox>
+                </VBox>
 
-            <!-- Login Button -->
-            <Button fx:id="btnLogin"  prefWidth="300.0"
-                    style="-fx-background-color: #00b894; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 10 0;"
-                    text="Login" />
+                <!-- Remember Me & Forgot Password -->
+                <HBox alignment="CENTER" spacing="60.0" prefWidth="400.0">
+                    <CheckBox text="Remember me" textFill="#636e72"
+                              style="-fx-font-size: 14px;" />
+                    <Hyperlink text="Forgot Password?" textFill="#667eea"
+                               style="-fx-font-size: 14px; -fx-font-weight: 600;" />
+                </HBox>
 
-            <!-- Error Label -->
-            <Label fx:id="lblError" textFill="red" visible="false" style="-fx-font-size: 12px;" />
+                <!-- Login Button -->
+                <Button fx:id="btnLogin" onAction="#handleLogin" prefWidth="400.0" prefHeight="50.0"
+                        style="-fx-background-color: linear-gradient(to right, #667eea, #764ba2); -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 12; -fx-font-size: 16px; -fx-cursor: hand;"
+                        text="Sign In">
+                    <effect>
+                        <DropShadow color="#667eea66" radius="8.0" offsetY="4.0" />
+                    </effect>
+                </Button>
 
-            <!-- Sign-up Prompt -->
-            <HBox alignment="CENTER" spacing="5.0">
-                <Label text="Don't have an account?" textFill="#636e72" />
-                <Hyperlink text="Sign Up" textFill="#00b894"
-                           style="-fx-font-weight: bold; -fx-underline: true;" />
-            </HBox>
+                <!-- Error Label -->
+                <Label fx:id="lblError" textFill="#e74c3c" visible="false"
+                       style="-fx-font-size: 14px; -fx-font-weight: 600; -fx-background-color: #ffeaea; -fx-background-radius: 8; -fx-padding: 10;" />
 
-            <padding>
-                <Insets top="30.0" />
-            </padding>
+            </VBox>
+
+            <!-- Bottom Section -->
+            <VBox alignment="CENTER" spacing="15.0">
+                <Separator prefWidth="300.0" />
+
+                <!-- Sign-up Prompt -->
+                <HBox alignment="CENTER" spacing="8.0">
+                    <Label text="Don't have an account?" textFill="#636e72"
+                           style="-fx-font-size: 14px;" />
+                    <Hyperlink fx:id="linkSignUp" text="Contact Admin" textFill="#667eea"
+                               style="-fx-font-size: 14px; -fx-font-weight: bold;" />
+                </HBox>
+
+                <!-- Version Info -->
+                <Label text="Version 1.0 | © 2024 Drive Master" textFill="#b2bec3"
+                       style="-fx-font-size: 12px;" />
+            </VBox>
 
         </VBox>
 
