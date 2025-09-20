@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600" prefWidth="950" style="-fx-background-color: E6CFA9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.drivingscool.controller.CourseManageController">
+<AnchorPane prefHeight="600" prefWidth="950" style="-fx-background-color: E6CFA9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.drivingscool.controller.CourseManagementController">
 
     <VBox layoutX="16.8" layoutY="15.2" prefHeight="570.0" prefWidth="919.0" spacing="15" style="-fx-background-color: E6CFA9;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="15.0">
 
@@ -29,9 +29,7 @@
 
         <HBox fx:id="imagehbox" alignment="CENTER_RIGHT" prefHeight="218.0" prefWidth="919.0" spacing="20" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
             <ImageView fitHeight="179.0" fitWidth="418.0" pickOnBounds="true" preserveRatio="true">
-                <image>
-                    <Image url="@../../../../../../../../../Pictures/Screenshots/Screenshot%202025-09-06%20142922.png" />
-                </image>
+
             </ImageView>
 
             <GridPane alignment="CENTER_RIGHT" hgap="15" prefHeight="268.0" prefWidth="542.0" style="-fx-padding: 10;" vgap="15">
@@ -78,7 +76,7 @@
         </HBox>
 
         <HBox alignment="CENTER" prefHeight="61.0" prefWidth="919.0" spacing="15">
-            <Button fx:id="btnAdd" onAction="#handleAddCourse" prefHeight="38.0" prefWidth="120.0" style="-fx-background-color: C1856D; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 15;" text="Save">
+            <Button fx:id="btnAdd" onAction="#handleSaveCourse" prefHeight="38.0" prefWidth="120.0" style="-fx-background-color: C1856D; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 15;" text="Save">
                 <font>
                     <Font size="14.0" />
                 </font>
@@ -125,7 +123,7 @@
             </Button>
         </HBox>
 
-        <TableView fx:id="tblCourses" prefHeight="246.0" prefWidth="930.0" style="-fx-background-color: white; -fx-border-color: lightgray; -fx-border-radius: 8;" VBox.vgrow="ALWAYS">
+        <TableView fx:id="tblCourses" onMouseClicked="#clickOnAction" prefHeight="246.0" prefWidth="930.0" style="-fx-background-color: white; -fx-border-color: lightgray; -fx-border-radius: 8;" VBox.vgrow="ALWAYS">
             <columns>
                 <TableColumn fx:id="colCourseId" prefWidth="120" text="Course ID" />
                 <TableColumn fx:id="colCourseName" prefWidth="180" text="Name" />
