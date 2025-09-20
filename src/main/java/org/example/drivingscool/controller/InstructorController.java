@@ -11,7 +11,6 @@ import javafx.scene.input.MouseEvent;
 import org.example.drivingscool.BO.custom.InstructorBO;
 import org.example.drivingscool.BO.custom.impl.InstructorBOImpl;
 import org.example.drivingscool.model.InstructorDTO;
-import org.example.drivingscool.model.StudentDTO;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -173,6 +172,7 @@ public class InstructorController {
             txtName.setText(selected.getName());
             txtEmail.setText(selected.getEmail());
             txtPhone.setText(selected.getPhone());
+            txtAvailability.setText(selected.getAvailability());
         }
     }
 

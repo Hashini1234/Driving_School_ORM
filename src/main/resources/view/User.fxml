@@ -1,93 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600" prefWidth="950" style="-fx-background-color: #E6CFA9;"
-            xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="org.example.drivingscool.controller.UserManageController">
+<AnchorPane prefHeight="600" prefWidth="950" style="-fx-background-color: #E6CFA9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.drivingscool.controller.UserManageController">
 
-    <VBox layoutX="16.8" layoutY="15.2" prefHeight="570.0" prefWidth="919.0" spacing="15"
-          AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="17.0"
-          AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="15.0">
+    <VBox layoutX="16.8" layoutY="15.2" prefHeight="570.0" prefWidth="919.0" spacing="15" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="15.0">
 
         <!-- Header -->
-        <Label alignment="CENTER" prefHeight="62.0" prefWidth="919.0"
-               style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #eff4fe;
-                      -fx-background-color: #3b0404; -fx-background-radius: 15;"
-               text="User Management">
+        <Label alignment="CENTER" prefHeight="62.0" prefWidth="919.0" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #eff4fe;                       -fx-background-color: #3b0404; -fx-background-radius: 15;" text="User Management">
             <font>
-                <Font name="Lucida Sans Unicode" size="12.0"/>
+                <Font name="Lucida Sans Unicode" size="12.0" />
             </font>
         </Label>
 
-        <Separator prefHeight="22.0" prefWidth="919.0" style="-fx-background-color: #3b0404;"/>
+        <Separator prefHeight="22.0" prefWidth="919.0" style="-fx-background-color: #3b0404;" />
 
         <!-- Top Section: Form -->
-        <GridPane alignment="CENTER" hgap="15" vgap="15"
-                  prefHeight="250.0" prefWidth="919.0" style="-fx-padding: 10;">
+        <GridPane alignment="CENTER" hgap="15" prefHeight="250.0" prefWidth="919.0" style="-fx-padding: 10;" vgap="15">
             <columnConstraints>
-                <ColumnConstraints percentWidth="30"/>
-                <ColumnConstraints percentWidth="70"/>
+                <ColumnConstraints percentWidth="30" />
+                <ColumnConstraints percentWidth="70" />
             </columnConstraints>
 
             <!-- User ID -->
             <Label text="User ID :" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                <font><Font name="System Bold" size="14.0"/></font>
+                <font><Font name="System Bold" size="14.0" /></font>
             </Label>
-            <TextField fx:id="txtUserId" editable="false"
-                       GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            <TextField fx:id="txtUserId" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
             <!-- User Name -->
             <Label text="User Name :" GridPane.columnIndex="0" GridPane.rowIndex="1">
-                <font><Font name="System Bold" size="14.0"/></font>
+                <font><Font name="System Bold" size="14.0" /></font>
             </Label>
-            <TextField fx:id="txtUserName" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            <TextField fx:id="txtUserName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
             <!-- Password -->
             <Label text="Password :" GridPane.columnIndex="0" GridPane.rowIndex="2">
-                <font><Font name="System Bold" size="14.0"/></font>
+                <font><Font name="System Bold" size="14.0" /></font>
             </Label>
-            <PasswordField fx:id="txtPassword" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+            <PasswordField fx:id="txtPassword" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
             <!-- Role -->
             <Label text="Role :" GridPane.columnIndex="0" GridPane.rowIndex="3">
-                <font><Font name="System Bold" size="14.0"/></font>
+                <font><Font name="System Bold" size="14.0" /></font>
             </Label>
-            <TextField fx:id="txtRole" promptText="Admin / User"
-                       GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+            <TextField fx:id="txtRole" promptText="Admin / User" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
         </GridPane>
 
         <!-- Buttons -->
         <HBox alignment="CENTER" spacing="15">
-            <Button fx:id="btnSave" onAction="#handleSaveUser" prefHeight="38.0" prefWidth="120.0"
-                    style="-fx-background-color: #C1856D; -fx-text-fill: white; -fx-font-weight: bold;
-                           -fx-background-radius: 15;" text="Save"/>
+            <Button fx:id="btnSave" onAction="#handleSaveUser" prefHeight="38.0" prefWidth="120.0" style="-fx-background-color: #C1856D; -fx-text-fill: white; -fx-font-weight: bold;                            -fx-background-radius: 15;" text="Save" />
 
-            <Button onAction="#handleClear" prefHeight="35.0" prefWidth="120.0"
-                    style="-fx-background-color: #C1856D; -fx-text-fill: white; -fx-font-weight: bold;
-                           -fx-background-radius: 15;" text="Clear"/>
+            <Button onAction="#handleClear" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #C1856D; -fx-text-fill: white; -fx-font-weight: bold;                            -fx-background-radius: 15;" text="Clear" />
 
-            <Button fx:id="btnUpdate" onAction="#handleUpdateUser" prefHeight="35.0" prefWidth="120.0"
-                    style="-fx-background-color: #C1856D; -fx-text-fill: white; -fx-font-weight: bold;
-                           -fx-background-radius: 15;" text="Update"/>
+            <Button fx:id="btnUpdate" onAction="#handleUpdateUser" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #C1856D; -fx-text-fill: white; -fx-font-weight: bold;                            -fx-background-radius: 15;" text="Update" />
 
-            <Button onAction="#handleDeleteUser" prefHeight="35.0" prefWidth="120.0"
-                    style="-fx-background-color: #C1856D; -fx-text-fill: white; -fx-font-weight: bold;
-                           -fx-background-radius: 15;" text="Delete"/>
+            <Button onAction="#handleDeleteUser" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #C1856D; -fx-text-fill: white; -fx-font-weight: bold;                            -fx-background-radius: 15;" text="Delete" />
         </HBox>
 
         <!-- TableView for displaying Users -->
-        <TableView fx:id="tblUsers" prefHeight="200.0" prefWidth="919.0"
-                   style="-fx-background-radius: 15; -fx-border-radius: 15;">
+        <TableView fx:id="tblUsers" prefHeight="200.0" prefWidth="919.0" style="-fx-background-radius: 15; -fx-border-radius: 15;">
             <columns>
-                <TableColumn fx:id="colUserId" text="User ID" prefWidth="120"/>
-                <TableColumn fx:id="colUserName" text="User Name" prefWidth="200"/>
-                <TableColumn fx:id="colPassword" text="Password" prefWidth="200"/>
-                <TableColumn fx:id="colRole" text="Role" prefWidth="120"/>
+                <TableColumn fx:id="colUserId" prefWidth="241.60001450777054" text="User ID" />
+                <TableColumn fx:id="colUserName" prefWidth="220.8000030517578" text="User Name" />
+                <TableColumn fx:id="colPassword" prefWidth="238.4000244140625" text="Password" />
+                <TableColumn fx:id="colRole" prefWidth="218.4000244140625" text="Role" />
             </columns>
         </TableView>
 
