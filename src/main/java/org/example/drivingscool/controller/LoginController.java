@@ -30,4 +30,9 @@ public class LoginController {
 
     }
 
+    public void loginOnAction(ActionEvent actionEvent) {
+    }
+
+    public void signUpOnAction(ActionEvent actionEvent) {
+    }
 }
