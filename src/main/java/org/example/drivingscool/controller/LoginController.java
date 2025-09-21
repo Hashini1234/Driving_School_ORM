@@ -2,11 +2,16 @@ package org.example.drivingscool.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import org.example.drivingscool.DAO.DAOFactory;
+import org.example.drivingscool.DAO.custom.UserDAO;
+import org.example.drivingscool.DAO.custom.impl.UserDAOImpl;
+import org.example.drivingscool.entity.User;
 
 public class LoginController {
 
@@ -14,10 +19,19 @@ public class LoginController {
     private Button btnLogin;
 
     @FXML
+    private CheckBox chkRememberMe;
+
+    @FXML
     private Label lblError;
 
     @FXML
-    private Hyperlink linkSignUp;
+    private Hyperlink linkForgotPassword;
+
+    @FXML
+    private VBox loginCard;
+
+    @FXML
+    private Hyperlink signUpLink;
 
     @FXML
     private PasswordField txtPassword;
@@ -25,14 +39,39 @@ public class LoginController {
     @FXML
     private TextField txtUsername;
 
+    UserDAO userDAO = (UserDAO) DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.USER);
+
     @FXML
-    void handleLogin(ActionEvent event) {
+    void loginOnAction(ActionEvent event) {
+        String username = txtUsername.getText();
+        String password = txtPassword.getText();
+
+        try {
+            User user = userDAO.search(username);
+            if (user != null) {
+                if (user.getPassword().equals(password)) {
+                    new Alert(Alert.AlertType.INFORMATION, "Login Successfully").show();
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/DashBoard.fxml"));
+                    Parent parent = loader.load();
+                    Stage stage = (Stage) btnLogin.getScene().getWindow();
+                    stage.setScene(new Scene(parent));
+                    stage.centerOnScreen();
+                    stage.show();
+                }
+
+            }else {
+                new Alert(Alert.AlertType.ERROR, "Invalid username or password").show();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
-    public void loginOnAction(ActionEvent actionEvent) {
+    @FXML
+    void signUpOnAction(ActionEvent event) {
+
     }
 
-    public void signUpOnAction(ActionEvent actionEvent) {
-    }
 }

@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class UserDAOImpl implements UserDAO {
@@ -64,5 +65,20 @@ public class UserDAOImpl implements UserDAO {
         session.getTransaction().commit();
         session.close();
         return true;
+    }
+
+
+    @Override
+    public User search(String name) throws SQLException, ClassNotFoundException {
+        Session session = FactoryConfigaration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        User user = session.createQuery("FROM User WHERE userName = :username", User.class)
+                .setParameter("username", name)
+                .uniqueResult();
+
+        transaction.commit();
+        session.close();
+        return user;
     }
 }
