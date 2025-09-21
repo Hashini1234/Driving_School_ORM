@@ -4,13 +4,19 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import org.example.drivingscool.BO.custom.StudentBO;
 import org.example.drivingscool.BO.custom.impl.StudentBOImpl;
 import org.example.drivingscool.model.StudentDTO;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -19,6 +25,7 @@ import java.util.Optional;
 public class StudentPageController {
 
     private final StudentBO studentBO = new StudentBOImpl();
+    public Button btnBackToDashboard;
 
     @FXML
     private Button btnClear, btnDelete, btnSave, btnUpdate;
@@ -163,4 +170,15 @@ public class StudentPageController {
             dpRegistrationDate.setValue(LocalDate.parse(selected.getRegistrationDate()));
         }
     }
+
+    @FXML
+    private void handleBackToDashboard(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/DashBoard.fxml"));
+        Parent root = loader.load();
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
 }
+
