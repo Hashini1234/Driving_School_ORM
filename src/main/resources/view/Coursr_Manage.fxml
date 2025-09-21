@@ -75,10 +75,6 @@
 
         </HBox>
 
-        <Button fx:id="btnBackToDashboard" onAction="#handleBackToDashboard" prefHeight="35" prefWidth="115.0" style="-fx-background-color: #870a30; /* Teal color */                -fx-text-fill: white; /* White text */                -fx-font-weight: bold; /* Bold text */                -fx-font-size: 14px; /* Slightly bigger text */                -fx-background-radius: 25; /* Pill shape */                -fx-padding: 8 20 8 20; /* Padding around text */                -fx-cursor: hand;" text="← Back To " />
-
-
-
 
         <HBox alignment="CENTER" prefHeight="61.0" prefWidth="919.0" spacing="15">
             <Button fx:id="btnAdd" onAction="#handleSaveCourse" prefHeight="38.0" prefWidth="120.0" style="-fx-background-color: C1856D; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 15;" text="Save">
@@ -128,6 +124,8 @@
             </Button>
         </HBox>
 
+
+        <Button fx:id="btnBackToDashboard" onAction="#handleBackToDashboard" prefHeight="35" prefWidth="115.0" style="-fx-background-color: #870a30; /* Teal color */                -fx-text-fill: white; /* White text */                -fx-font-weight: bold; /* Bold text */                -fx-font-size: 14px; /* Slightly bigger text */                -fx-background-radius: 25; /* Pill shape */                -fx-padding: 8 20 8 20; /* Padding around text */                -fx-cursor: hand;" text="← Back To " />
 
 
 

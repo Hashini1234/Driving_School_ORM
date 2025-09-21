@@ -145,6 +145,9 @@
             </Button>
         </HBox>
 
+        <Button fx:id="btnBackToDashboard" onAction="#handleBackToDashboard" prefHeight="35" prefWidth="115.0" style="-fx-background-color: #870a30; /* Teal color */                -fx-text-fill: white; /* White text */                -fx-font-weight: bold; /* Bold text */                -fx-font-size: 14px; /* Slightly bigger text */                -fx-background-radius: 25; /* Pill shape */                -fx-padding: 8 20 8 20; /* Padding around text */                -fx-cursor: hand;" text="← Back To " />
+
+
         <!-- TableView for displaying payments -->
         <TableView fx:id="tblPayments" prefHeight="200.0" prefWidth="919.0" style="-fx-background-radius: 15; -fx-border-radius: 15;">
             <columns>
