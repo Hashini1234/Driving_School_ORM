@@ -128,7 +128,6 @@ public class CourseManagementController implements Initializable {
     }
 
 
-
     @SneakyThrows
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -147,32 +146,17 @@ public class CourseManagementController implements Initializable {
         }
     }
 
-    public void handleBackToDashboard(ActionEvent actionEvent) {
-        try {
-            URL resourceUrl = getClass().getResource("/org/example/drivingscool/Dashboard.fxml");
-            if (resourceUrl == null) {
-                throw new IOException("Dashboard.fxml not found at /org/example/drivingscool/Dashboard.fxml.");
-            }
+    @FXML
+    private void handleBackToDashboard(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/DashBoard.fxml"));
+        Parent root = loader.load();
 
-            FXMLLoader loader = new FXMLLoader(resourceUrl);
-            Parent root = loader.load();
-
-            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setTitle("Dashboard");
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR, "Failed to load dashboard: " + e.getMessage()).show();
-        } catch (Exception e) {
-            e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR, "Unexpected error: " + e.getMessage()).show();
-
-
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
-    }
-    }
+}
+
 
 
 

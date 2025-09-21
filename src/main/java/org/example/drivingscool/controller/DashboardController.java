@@ -147,7 +147,7 @@ public class DashboardController {
 
     @FXML
     void handleManageUsers(ActionEvent event) {
-        nevigateTo("/view/user_Manage.fxml");
+        nevigateTo("/view/User.fxml");
 
     }
 
@@ -155,6 +155,8 @@ public class DashboardController {
     void handleSearch(ActionEvent event) {
         
     }
+
+
 
     public void initialize() throws SQLException, ClassNotFoundException {
         setStudent();

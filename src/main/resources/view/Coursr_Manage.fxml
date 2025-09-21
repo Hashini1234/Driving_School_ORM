@@ -18,7 +18,7 @@
 
 <AnchorPane prefHeight="600" prefWidth="950" style="-fx-background-color: E6CFA9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.drivingscool.controller.CourseManagementController">
 
-    <VBox layoutX="16.8" layoutY="15.2" prefHeight="570.0" prefWidth="919.0" spacing="15" style="-fx-background-color: E6CFA9;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="15.0">
+    <VBox layoutX="31.0" layoutY="15.0" prefHeight="570.0" prefWidth="919.0" spacing="15" style="-fx-background-color: E6CFA9;" AnchorPane.bottomAnchor="15.400000000000091" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="0.1999999999999318" AnchorPane.topAnchor="15.0">
 
         <Label alignment="CENTER" prefHeight="62.0" prefWidth="919.0" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #eff4fe; -fx-background-color: #3b0404; -fx-background-radius: 15;" text="Course Management">
             <font>
@@ -74,16 +74,10 @@
             </GridPane>
 
         </HBox>
-        <Button fx:id="btnBackToDashboard" text="← Back"
-                onAction="#handleBackToDashboard"
-                style="-fx-background-color: #1abc9c;      /* Teal color */
-               -fx-text-fill: white;            /* White text */
-               -fx-font-weight: bold;           /* Bold text */
-               -fx-font-size: 14px;             /* Slightly bigger text */
-               -fx-background-radius: 25;       /* Pill shape */
-               -fx-padding: 8 20 8 20;          /* Padding around text */
-               -fx-cursor: hand;"
-                prefHeight="35" prefWidth="100"/>
+
+        <Button fx:id="btnBackToDashboard" onAction="#handleBackToDashboard" prefHeight="35" prefWidth="115.0" style="-fx-background-color: #870a30; /* Teal color */                -fx-text-fill: white; /* White text */                -fx-font-weight: bold; /* Bold text */                -fx-font-size: 14px; /* Slightly bigger text */                -fx-background-radius: 25; /* Pill shape */                -fx-padding: 8 20 8 20; /* Padding around text */                -fx-cursor: hand;" text="← Back To " />
+
+
 
 
         <HBox alignment="CENTER" prefHeight="61.0" prefWidth="919.0" spacing="15">
@@ -133,6 +127,9 @@
                 </graphic>
             </Button>
         </HBox>
+
+
+
 
         <TableView fx:id="tblCourses" onMouseClicked="#clickOnAction" prefHeight="246.0" prefWidth="930.0" style="-fx-background-color: white; -fx-border-color: lightgray; -fx-border-radius: 8;" VBox.vgrow="ALWAYS">
             <columns>

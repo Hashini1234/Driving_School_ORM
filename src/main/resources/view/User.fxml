@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600" prefWidth="950" style="-fx-background-color: #E6CFA9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.drivingscool.controller.UserManageController">
+<AnchorPane prefHeight="600.0" prefWidth="950.0" style="-fx-background-color: #E6CFA9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.drivingscool.controller.UserController">
 
     <VBox layoutX="16.8" layoutY="15.2" prefHeight="570.0" prefWidth="919.0" spacing="15" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="15.0">
 
@@ -51,13 +51,13 @@
             <Label text="Password :" GridPane.columnIndex="0" GridPane.rowIndex="2">
                 <font><Font name="System Bold" size="14.0" /></font>
             </Label>
-            <PasswordField fx:id="txtPassword" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
             <!-- Role -->
             <Label text="Role :" GridPane.columnIndex="0" GridPane.rowIndex="3">
                 <font><Font name="System Bold" size="14.0" /></font>
             </Label>
             <TextField fx:id="txtRole" promptText="Admin / User" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         <PasswordField fx:id="txtPassword" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          <rowConstraints>
             <RowConstraints />
             <RowConstraints />
@@ -78,12 +78,12 @@
         </HBox>
 
         <!-- TableView for displaying Users -->
-        <TableView fx:id="tblUsers" prefHeight="200.0" prefWidth="919.0" style="-fx-background-radius: 15; -fx-border-radius: 15;">
+        <TableView fx:id="tblUsers" onMouseClicked="#tableClick" prefHeight="174.0" prefWidth="971.0" style="-fx-background-radius: 15; -fx-border-radius: 15;">
             <columns>
-                <TableColumn fx:id="colUserId" prefWidth="241.60001450777054" text="User ID" />
-                <TableColumn fx:id="colUserName" prefWidth="220.8000030517578" text="User Name" />
-                <TableColumn fx:id="colPassword" prefWidth="238.4000244140625" text="Password" />
-                <TableColumn fx:id="colRole" prefWidth="218.4000244140625" text="Role" />
+                <TableColumn fx:id="colUserId" prefWidth="213.59999924898148" text="User ID" />
+                <TableColumn fx:id="colUserName" prefWidth="224.80001831054688" text="User Name" />
+                <TableColumn fx:id="colPassword" prefWidth="236.0" text="Password" />
+                <TableColumn fx:id="colRole" minWidth="0.0" prefWidth="252.0" text="Role" />
             </columns>
         </TableView>
 
