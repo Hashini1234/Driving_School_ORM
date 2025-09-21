@@ -9,13 +9,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import org.example.drivingscool.BO.custom.BOFactory;
-import org.example.drivingscool.BO.custom.CourseBO;
-import org.example.drivingscool.BO.custom.InstructorBO;
-import org.example.drivingscool.BO.custom.StudentBO;
+import org.example.drivingscool.BO.custom.*;
 import org.example.drivingscool.model.CourseDTO;
 import org.example.drivingscool.model.InstructorDTO;
 import org.example.drivingscool.model.StudentDTO;
+import org.example.drivingscool.model.UserDTO;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -94,6 +92,7 @@ public class DashboardController {
     StudentBO studentBO = (StudentBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.STUDENT);
     InstructorBO instructorBO = (InstructorBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.INSTRUCTOR);
     CourseBO courseBO = (CourseBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.COURSE);
+    UserBO userBO = (UserBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.USER);
 
 
 
@@ -141,13 +140,13 @@ public class DashboardController {
 
     @FXML
     void handleManageStudents(ActionEvent event) {
-        nevigateTo("/view/student_Manage.fxml");
+        nevigateTo("/view/Student_Manage.fxml");
 
     }
 
     @FXML
     void handleManageUsers(ActionEvent event) {
-        nevigateTo("/view/user_Manage.fxml");
+        nevigateTo("/view/User.fxml");
 
     }
 
@@ -160,6 +159,7 @@ public class DashboardController {
         setStudent();
         setInstructor();
         setCourse();
+        setUser();
     }
 
     private void setInstructor() throws SQLException {
@@ -179,6 +179,11 @@ public class DashboardController {
         lblTotalCourses.setText(String.valueOf(allCourse.size()));
 
 
+    }
+
+    private void setUser() throws SQLException {
+        ArrayList<UserDTO> allUser = (ArrayList<UserDTO>) userBO.getAllUsers();
+        lblTotalUsers.setText(String.valueOf(allUser.size()));
     }
 
 }
