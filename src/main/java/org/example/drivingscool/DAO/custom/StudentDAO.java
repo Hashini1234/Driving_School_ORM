@@ -15,4 +15,7 @@ public interface StudentDAO extends CrudDao<Student> {
     boolean delete(String id);
 
     boolean update(Student student);
+     Student findById(long id) throws Exception;
+
+
 }

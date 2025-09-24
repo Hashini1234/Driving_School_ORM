@@ -78,4 +78,9 @@ public class StudentDAOImpl implements StudentDAO {
         return true;
 
     }
+    public Student findById(long id) throws Exception {
+        try (Session session = FactoryConfigaration.getInstance().getSession()) {
+            return session.get(Student.class, id);
+        }
+    }
 }

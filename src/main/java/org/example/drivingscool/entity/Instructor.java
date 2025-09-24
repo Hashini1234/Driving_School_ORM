@@ -3,6 +3,8 @@ package org.example.drivingscool.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Setter
 @Getter
 @AllArgsConstructor
@@ -20,4 +22,15 @@ public class Instructor {
     private String email;
     private String phone;
     private String availability;
+
+    @OneToMany(mappedBy = "instructor", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Lesson> lessons = new java.util.ArrayList<>();
+
+    public Instructor(long instructorId, String name, String email, String phone, String availability) {
+        this.instructorId = instructorId;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.availability = availability;
+    }
 }

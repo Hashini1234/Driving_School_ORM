@@ -12,4 +12,8 @@ public interface InstructorDAO extends CrudDao<Instructor> {
     boolean delete(String id);
 
     boolean update(Instructor instructor);
+
+    public Instructor findById(long id) throws Exception;
+
+
 }

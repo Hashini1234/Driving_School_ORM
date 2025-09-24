@@ -3,6 +3,7 @@ package org.example.drivingscool.DAO.custom.impl;
 import org.example.drivingscool.DAO.custom.CourseDAO;
 import org.example.drivingscool.config.FactoryConfigaration;
 import org.example.drivingscool.entity.Course;
+import org.example.drivingscool.entity.Instructor;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -66,6 +67,12 @@ public class CourseDAOImpl implements CourseDAO {
             tx.rollback();
             session.close();
             return false;
+        }
+    }
+
+    public Course findById(long id) throws Exception {
+        try (Session session = FactoryConfigaration.getInstance().getSession().getSessionFactory().openSession()) {
+            return session.get(Course.class, id);
         }
     }
 }

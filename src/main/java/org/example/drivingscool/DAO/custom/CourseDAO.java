@@ -11,4 +11,7 @@ public interface CourseDAO extends CrudDao<Course> {
     boolean delete(String id);
 
     boolean update(Course course);
+    public Course findById(long id) throws Exception;
+
+
 }
