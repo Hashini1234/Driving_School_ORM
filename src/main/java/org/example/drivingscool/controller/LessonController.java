@@ -2,26 +2,31 @@ package org.example.drivingscool.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class LessonController {
 
-    public Button btnBackToDashboard;
+    @FXML
+    private Button btnBackToDashboard;
+
     @FXML
     private Button btnSave;
 
     @FXML
     private Button btnUpdate;
+
+    @FXML
+    private ComboBox<?> cbStudentId;
+
+    @FXML
+    private ComboBox<?> cmCourseId;
+
+    @FXML
+    private ComboBox<?> cmInstructorId;
 
     @FXML
     private TableColumn<?, ?> colCourseId;
@@ -45,16 +50,10 @@ public class LessonController {
     private TableColumn<?, ?> colTime;
 
     @FXML
-    private TableView<?> tblPayments;
-
-    @FXML
-    private TextField txtCourseId;
+    private TableView<?> tblLesson;
 
     @FXML
     private TextField txtDate;
-
-    @FXML
-    private TextField txtInstructorId;
 
     @FXML
     private TextField txtLessonId;
@@ -63,10 +62,12 @@ public class LessonController {
     private TextField txtStatus;
 
     @FXML
-    private TextField txtStudentId;
+    private TextField txtTime;
 
     @FXML
-    private TextField txtTime;
+    void handleBackToDashboard(ActionEvent event) {
+
+    }
 
     @FXML
     void handleClear(ActionEvent event) {
@@ -88,13 +89,6 @@ public class LessonController {
 
     }
 
-    public void handleBackToDashboard(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/DashBoard.fxml"));
-        Parent root = loader.load();
 
-        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
 
 }
