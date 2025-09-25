@@ -85,7 +85,7 @@
                 <Label text="Instructor ID :" GridPane.columnIndex="0" GridPane.rowIndex="6">
                     <font><Font name="System Bold" size="14.0" /></font>
                 </Label>
-            <ComboBox fx:id="cbStudentId" onMouseClicked="#ClickOnAction" prefHeight="26.0" prefWidth="429.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <ComboBox fx:id="cbStudentId" prefHeight="26.0" prefWidth="429.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <ComboBox fx:id="cmCourseId" prefHeight="26.0" prefWidth="424.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <ComboBox fx:id="cmInstructorId" prefHeight="26.0" prefWidth="355.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <DatePicker fx:id="dpDate" prefHeight="14.0" prefWidth="424.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -150,7 +150,7 @@
 
 
         <!-- Table -->
-        <TableView fx:id="tblLesson" prefHeight="246.0" prefWidth="930.0" style="-fx-background-color: white; -fx-border-color: lightgray; -fx-border-radius: 8;" VBox.vgrow="ALWAYS">
+        <TableView fx:id="tblLesson" onMouseClicked="#clickOnAction" prefHeight="246.0" prefWidth="930.0" style="-fx-background-color: white; -fx-border-color: lightgray; -fx-border-radius: 8;" VBox.vgrow="ALWAYS">
             <columns>
                 <TableColumn fx:id="colLessonId" prefWidth="100" text="Lesson ID" />
                 <TableColumn fx:id="colDate" prefWidth="120" text="Date" />

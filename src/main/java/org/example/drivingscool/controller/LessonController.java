@@ -4,15 +4,22 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import org.example.drivingscool.BO.custom.BOFactory;
 import org.example.drivingscool.BO.custom.InstructorBO;
 import org.example.drivingscool.BO.custom.LessonBO;
+import org.example.drivingscool.model.InstructorDTO;
 import org.example.drivingscool.model.LessonDTO;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.util.List;
@@ -77,7 +84,14 @@ public class LessonController implements Initializable {
     private TextField txtTime;
 
     @FXML
-    void handleBackToDashboard(ActionEvent event) {
+    void handleBackToDashboard(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/DashBoard.fxml"));
+        Parent root = loader.load();
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+
 
 
     }
@@ -209,18 +223,7 @@ public class LessonController implements Initializable {
 
     }
 
-    public void ClickOnAction(MouseEvent mouseEvent) {
-        LessonDTO selected = (LessonDTO) tblLesson.getSelectionModel().getSelectedItem();
-        if (selected != null) {
-            txtLessonId.setText(String.valueOf(selected.getLessonID()));
-            dpDate.setValue(selected.getDate().toLocalDate());
-            txtTime.setText(selected.getTime());
-            txtStatus.setText(selected.getStatus());
-            cbStudentId.getSelectionModel().select(String.valueOf(selected.getStudentID()));
-            cmCourseId.getSelectionModel().select(String.valueOf(selected.getCourseID()));
-            cmInstructorId.getSelectionModel().select(String.valueOf(selected.getInstructorID()));
-        }
-    }
+
     private void loadInstructorIds() {
         try {
             List<String> ids = lessonBO.getAllInstructorIds();
@@ -246,6 +249,19 @@ public class LessonController implements Initializable {
             cbStudentId.setItems(list);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public void clickOnAction(MouseEvent mouseEvent) {
+        LessonDTO selected = tblLesson.getSelectionModel().getSelectedItem();
+        if (selected != null) {
+            txtLessonId.setText(String.valueOf(selected.getLessonID()));
+            dpDate.setValue(selected.getDate().toLocalDate());
+            txtTime.setText(selected.getTime());
+            txtStatus.setText(selected.getStatus());
+            cbStudentId.getSelectionModel().select(String.valueOf(selected.getStudentID()));
+            cmCourseId.getSelectionModel().select(String.valueOf(selected.getCourseID()));
+            cmInstructorId.getSelectionModel().select(String.valueOf(selected.getInstructorID()));
         }
     }
 }

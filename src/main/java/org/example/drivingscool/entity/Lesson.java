@@ -34,6 +34,7 @@ import java.sql.Date;
             this.instructor = instructor;
         }
 
+
         @ManyToOne
         @JoinColumn(name = "student_id", nullable = false)
         private Student student;
