@@ -28,7 +28,7 @@ public class LessonBOImpl implements LessonBO {
     @Override
     public boolean saveLesson(LessonDTO dto) throws Exception {
         Instructor instructor = instructorDAO.findById(dto.getInstructorID());
-        Course  course = courseDAO.findById(dto.getCourseID());
+        Course course = courseDAO.findById(dto.getCourseID());
         Student student = studentDAO.findById(dto.getStudentID());
         Lesson lesson = new Lesson(
                 dto.getDate(),
@@ -44,7 +44,7 @@ public class LessonBOImpl implements LessonBO {
     @Override
     public boolean updateLesson(LessonDTO dto) throws Exception {
         Instructor instructor = instructorDAO.findById(dto.getInstructorID());
-        Course  course = courseDAO.findById(dto.getCourseID());
+        Course course = courseDAO.findById(dto.getCourseID());
         Student student = studentDAO.findById(dto.getStudentID());
 
         Lesson lesson = new Lesson(
@@ -106,5 +106,23 @@ public class LessonBOImpl implements LessonBO {
             idList.add(String.valueOf(i.getCourseId()));
         }
         return idList;
+    }
+
+    @Override
+    public List<LessonDTO> getAllLessons() throws SQLException, ClassNotFoundException {
+        ArrayList<Lesson> all = lessonDAO.getall();
+        ArrayList<LessonDTO> allDTO = new ArrayList<>();
+        for (Lesson lesson : all) {
+            allDTO.add(new LessonDTO(
+                    lesson.getLessonID(),
+                    lesson.getDate(),
+                    lesson.getTime(),
+                    lesson.getStatus(),
+                    lesson.getStudent().getStudentId(),
+                    lesson.getCourse().getCourseId(),
+                    lesson.getInstructor().getInstructorId()
+            ));
+        }
+        return allDTO;
     }
 }

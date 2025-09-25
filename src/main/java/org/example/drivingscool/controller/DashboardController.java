@@ -10,10 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import org.example.drivingscool.BO.custom.*;
-import org.example.drivingscool.model.CourseDTO;
-import org.example.drivingscool.model.InstructorDTO;
-import org.example.drivingscool.model.StudentDTO;
-import org.example.drivingscool.model.UserDTO;
+import org.example.drivingscool.model.*;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -93,6 +90,7 @@ public class DashboardController {
     InstructorBO instructorBO = (InstructorBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.INSTRUCTOR);
     CourseBO courseBO = (CourseBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.COURSE);
     UserBO userBO = (UserBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.USER);
+    LessonBO lessonBO=(LessonBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.LESSON);
 
 
 
@@ -160,6 +158,12 @@ public class DashboardController {
         setInstructor();
         setCourse();
         setUser();
+        setLessons();
+    }
+
+    private void setLessons() throws SQLException, ClassNotFoundException {
+        ArrayList<LessonDTO> allLessons = (ArrayList<LessonDTO>) lessonBO.getAllLessons();
+        lblTotalLessons.setText(String.valueOf(allLessons.size()));
     }
 
     private void setInstructor() throws SQLException {
