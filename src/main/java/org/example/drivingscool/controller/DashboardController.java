@@ -91,6 +91,7 @@ public class DashboardController {
     CourseBO courseBO = (CourseBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.COURSE);
     UserBO userBO = (UserBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.USER);
     LessonBO lessonBO=(LessonBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.LESSON);
+    PaymentBO paymentBO=(PaymentBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.PAYMENT);
 
 
 
@@ -153,12 +154,19 @@ public class DashboardController {
 
     }
 
-    public void initialize() throws SQLException, ClassNotFoundException {
+    public void initialize() throws Exception {
         setStudent();
         setInstructor();
         setCourse();
         setUser();
         setLessons();
+        setPayment();
+    }
+
+    private void setPayment() throws Exception {
+        ArrayList<PaymentDTO> allPayment = (ArrayList<PaymentDTO>) paymentBO.getAllPayment();
+        lblTotalPayments.setText(String.valueOf(allPayment.size()));
+
     }
 
     private void setLessons() throws SQLException, ClassNotFoundException {
@@ -189,5 +197,9 @@ public class DashboardController {
         ArrayList<UserDTO> allUser = (ArrayList<UserDTO>) userBO.getAllUsers();
         lblTotalUsers.setText(String.valueOf(allUser.size()));
     }
+
+
+
+
 
 }

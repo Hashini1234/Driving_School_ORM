@@ -74,4 +74,17 @@ public class PaymentBOImpl implements PaymentBO {
         return idList;
 
     }
+
+    @Override
+    public Object getAllPayment() throws Exception {
+        return paymentDAO.findAll().stream().map(payment ->
+                new PaymentDTO(
+                        payment.getPaymentId(),
+                        payment.getDate(),
+                        payment.getMethod(),
+                        payment.getAmount(),
+                        payment.getStudent().getStudentId(),
+                        payment.getCourse().getCourseId()
+                )).collect(Collectors.toList());
+    }
 }

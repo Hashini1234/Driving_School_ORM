@@ -17,4 +17,6 @@ public interface PaymentBO extends SuperBO {
     List<String> getAllStudentIds();
 
     List<String> getAllCourseIds();
+
+    Object getAllPayment() throws Exception;
 }
