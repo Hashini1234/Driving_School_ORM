@@ -25,6 +25,9 @@ public class Course {
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Lesson> lessons = new java.util.ArrayList<>();
 
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Payment> payments = new java.util.ArrayList<>();
+
     public Course(long courseId, String name, String duration, String fee) {
         this.courseId = courseId;
         this.name = name;
